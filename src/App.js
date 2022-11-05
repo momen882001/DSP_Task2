@@ -12,7 +12,7 @@ function App() {
      if(e.target && e.target.files[0]) {
       formData.append("file" , e.target.files[0])
      }
-     axios.post('https://v2.convertapi.com/upload',{
+     axios.post('http://127.0.0.1:8080/upload',{
       formData
     }).then((response) => {
      console.log(response)
