@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import { FileContext } from '../contexts/fileContext';
 import axios from 'axios'
 
-const UploadAudio = ({  }) => {
+const UploadAudio = ({}) => {
 	const inputFile = useRef(null);
 	const { fileURL, setFileURL } = useContext(FileContext);
 	const [file, setFile] = useState(null);
@@ -22,9 +22,10 @@ const UploadAudio = ({  }) => {
 		setFile(URL.createObjectURL(e.target.files[0]));
 		const formData = new FormData();
 		formData.append("file" , e.target.files[0])
-		axios.post('http://127.0.0.1:8080/upload',{
+		console.log(formData)
+		axios.post('http://127.0.0.1:8080/upload',
 			formData
-		  }).then((response) => {
+		  ).then((response) => {
 		   console.log(response)
 		  }).catch((err) => {
 		   console.log(err)

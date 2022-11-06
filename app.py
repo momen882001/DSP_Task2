@@ -23,14 +23,12 @@ class Helloworld(Resource):
         print (Helloworld.some_json)
         return jsonify({'about':'Helloworld'})
     def post(self):
-        self.some_json = request.get_json()
-        # print (Helloworld.some_json)
         print(request.files)
         if "file" not in request.files:
             return {"there is an error":'err'},400
         file = request.files["file"]
         print(file)
-        return jsonify({'yousent':self.some_json})
+        return jsonify({'yousent':'A5A'})
 api.add_resource(Helloworld,'/upload')
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')
