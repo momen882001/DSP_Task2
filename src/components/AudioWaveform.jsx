@@ -3,6 +3,7 @@ import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
 import { FileContext } from '../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
+import Sliders from './Sliders';
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
@@ -237,6 +238,7 @@ const AudioWaveform = () => {
 					</div>
 				</div>
 			</div>
+					<Sliders/>
 		</section>
 	);
 };
