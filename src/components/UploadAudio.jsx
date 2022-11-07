@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { FileContext } from '../contexts/fileContext';
 import axios from 'axios'
+import Modes from './Modes';
 
 const UploadAudio = ({}) => {
 	const inputFile = useRef(null);
@@ -35,6 +36,7 @@ const UploadAudio = ({}) => {
 
 	return (
 		<div className='upload-audio'>
+			<Modes/>
 			<h1>Upload your audio file here</h1>
 			<button className='upload-btn' onClick={handleButtonClick}>
 				Upload
