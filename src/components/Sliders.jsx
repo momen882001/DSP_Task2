@@ -1,32 +1,75 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect } from 'react'
 
 function Sliders() {
-  const [slider,setSlider] = useState(50);
-  const mode1 = [
+  const [mode_1,setMode_1] = useState([]);
+
+  useEffect(() => {
+    setMode_1(mode1_Sliders);
+  }, [])
+  
+  const mode1_Sliders = [
     {
+      "id":0,
       "min":0,
-      "max":200,
-      "step":1
+      "max":500,
+      "step":1,
+      "value":250
     },
     {
+      "id":1,
       "min":0,
-      "max":400,
-      "step":20
+      "max":500,
+      "step":1,
+      "value":250
+    },
+    {
+      "id":2,
+      "min":0,
+      "max":500,
+      "step":1,
+      "value":250
+    },
+    {
+      "id":3,
+      "min":0,
+      "max":500,
+      "step":1,
+      "value":250
+    },
+    {
+      "id":4,
+      "min":0,
+      "max":500,
+      "step":1,
+      "value":250
     }
   ]
-  const arr1 = mode1.map((mode,index) => {
-    return(
-      <label key={index}>
-        <input type="range" name="range" min={mode.min} max={mode.max} step={mode.step} value={slider} onChange={(e) => setSlider(e.target.value)} />
-        {slider}
-      </label>
-    )
-  })
+
+  const on_change_slider = (event, index) => {
+    const newSliderList = [...mode_1];
+    newSliderList[index].value = event.target.value;
+    setMode_1(newSliderList);
+  };
 
   return (
     <div>
-  {arr1}      
-    </div>
+    {mode_1.map((element, index) => {
+      return (
+        <div>
+          <input
+            type={"range"}
+            id={element.id}
+            min={element.min}
+            max={element.max}
+            step={element.step}
+            value={element.value}
+            onChange={(event) => on_change_slider(event, index)}
+          ></input>
+          {element.value}
+        </div>
+      );
+    })}
+  </div>
   )
 }
 
