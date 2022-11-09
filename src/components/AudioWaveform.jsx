@@ -3,7 +3,6 @@ import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
 import { FileContext } from '../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
-import Sliders from './Sliders';
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
@@ -11,6 +10,7 @@ const AudioWaveform = () => {
 
 	// fetch file url from the context
 	const { fileURL, setFileURL } = useContext(FileContext);
+	const { fileUpdated, setFileUpdated } = useContext(FileContext);
 
 	// crate an instance of the wavesurfer
 	const [wavesurferObj, setWavesurferObj] = useState();
@@ -77,10 +77,10 @@ const AudioWaveform = () => {
 
 	// once the file URL is ready, load the file updated to produce the waveform
 	useEffect(() => {
-		if (fileURL && wavesurferObjUpdated) {
-			wavesurferObjUpdated.load(fileURL);
+		if (fileUpdated && wavesurferObjUpdated) {
+			wavesurferObjUpdated.load(fileUpdated);
 		}
-	}, [fileURL, wavesurferObjUpdated]);
+	}, [fileUpdated, wavesurferObjUpdated]);
 
 	useEffect(() => {
 		if (wavesurferObj && wavesurferObjUpdated) {
@@ -238,7 +238,6 @@ const AudioWaveform = () => {
 					</div>
 				</div>
 			</div>
-					<Sliders/>
 		</section>
 	);
 };

@@ -1,59 +1,32 @@
-import React, { useState ,useEffect } from 'react'
+import React, { useState ,useEffect,useContext } from 'react'
+import { FileContext } from '../contexts/fileContext';
+import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../constants';
 
 function Sliders() {
-  const [mode_1,setMode_1] = useState([]);
+  // const [mode_1,setMode_1] = useState([]);
+	const { modesIndex, setModesIndex ,slidersList,setSlidersList} = useContext(FileContext);
+
 
   useEffect(() => {
-    setMode_1(mode1_Sliders);
-  }, [])
-  
-  const mode1_Sliders = [
-    {
-      "id":0,
-      "min":0,
-      "max":500,
-      "step":1,
-      "value":250
-    },
-    {
-      "id":1,
-      "min":0,
-      "max":500,
-      "step":1,
-      "value":250
-    },
-    {
-      "id":2,
-      "min":0,
-      "max":500,
-      "step":1,
-      "value":250
-    },
-    {
-      "id":3,
-      "min":0,
-      "max":500,
-      "step":1,
-      "value":250
-    },
-    {
-      "id":4,
-      "min":0,
-      "max":500,
-      "step":1,
-      "value":250
+    if(modesIndex===0){
+      setSlidersList(mode1_Sliders);
+    }else  if(modesIndex===1){
+      setSlidersList(mode2_Sliders);
+    }else  if(modesIndex===2){
+      setSlidersList(mode3_sliders);
     }
-  ]
+  }, [modesIndex])
+  
 
   const on_change_slider = (event, index) => {
-    const newSliderList = [...mode_1];
+    const newSliderList = [...slidersList];
     newSliderList[index].value = event.target.value;
-    setMode_1(newSliderList);
+    setSlidersList(newSliderList);
   };
 
   return (
     <div>
-    {mode_1.map((element, index) => {
+    {slidersList.map((element, index) => {
       return (
         <div>
           <input
@@ -65,7 +38,7 @@ function Sliders() {
             value={element.value}
             onChange={(event) => on_change_slider(event, index)}
           ></input>
-          {element.value}
+          {modesIndex === 0 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}
         </div>
       );
     })}

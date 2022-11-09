@@ -236,22 +236,8 @@ input:checked+.toggle .off {
   display: none;
 }
 
-/* footer style */
-footer {
-  font-family: inherit;
-  position: fixed;
-  bottom: 2%;
-  right: 2%;
-}
 
 @media screen and (max-width: 430px) {
-  nav {
-    font-size: 1em;
-  }
-
-  .upload-audio i.audio-icon {
-    font-size: 4em;
-  }
 
   /* all icons */
   i.material-icons {
