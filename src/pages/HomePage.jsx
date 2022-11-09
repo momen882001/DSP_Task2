@@ -1,14 +1,14 @@
 import React from 'react';
-import UploadAudio from '../components/UploadAudio';
-import AudioWaveform from '../components/AudioWaveform'
-import Modes from '../components/Modes';
-import Sliders from '../components/Sliders';
+import UploadAudio from '../components/upload/UploadAudio';
+import AudioWaveform from '../components/Wave/AudioWaveform'
+import Modes from '../components/Modes/Modes';
+import Sliders from '../components/Sliders/Sliders';
 
 const HomePage = ({ history }) => {
 	return (
 		<>
-			<UploadAudio history={history} />
 			<br />
+			<UploadAudio history={history} />
 			<AudioWaveform />
 			<Modes/>
 			<br />

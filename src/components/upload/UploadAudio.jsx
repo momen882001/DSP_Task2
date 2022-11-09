@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { FileContext } from '../contexts/fileContext';
+import { FileContext } from '../../contexts/fileContext';
 import axios from 'axios'
+import './upload.css'
 
 const UploadAudio = ({}) => {
 	const inputFile = useRef(null);

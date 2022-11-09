@@ -1,6 +1,7 @@
 import React, { useState ,useEffect,useContext } from 'react'
-import { FileContext } from '../contexts/fileContext';
-import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../constants';
+import { FileContext } from '../../contexts/fileContext';
+import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../../constants';
+import './sliders.css'
 
 function Sliders() {
   // const [mode_1,setMode_1] = useState([]);

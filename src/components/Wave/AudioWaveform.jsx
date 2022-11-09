@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
-import { FileContext } from '../contexts/fileContext';
+import { FileContext } from '../../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
+import './wave.css'
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
@@ -183,6 +184,7 @@ const AudioWaveform = () => {
 
 
 	return (
+		<div className="container">
 		<section className='waveform-container'>
 			<div ref={wavesurferRef} id='waveform' />
 			<div ref={timelineRef} id='wave-timeline' />
@@ -239,6 +241,8 @@ const AudioWaveform = () => {
 				</div>
 			</div>
 		</section>
+		<section className='spectrogram-container'>HELLO DARKNES MY OLD FIREND</section>
+		</div>
 	);
 };
 

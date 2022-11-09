@@ -9,25 +9,9 @@ body {
   width: 100%;
 }
 
-/* style for the upload audio component */
-.upload-audio {
-  width: 100%;
-  margin-top: 5vh;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.upload-audio i.audio-icon {
-  font-size: 5em;
-}
 
 /* the container where wavesurfer adds the audio waveform */
-.waveform-container {
-  margin: 0 auto;
-  max-width: 80vw;
-}
+
 
 /* style for the navbar */
 nav {
@@ -60,22 +44,6 @@ i.material-icons {
 
 h1 {
   color: #1D0B22
-}
-
-/* style for the upload button */
-button.upload-btn {
-  width: 10em;
-  font-size: 1em;
-  padding: 0.5em;
-  background: #5B266B;
-  border-radius: 999px;
-  color: white;
-  border-color: #5B266B;
-  cursor: pointer;
-}
-
-button.upload-btn:hover {
-  filter: brightness(1.1);
 }
 
 /* style for the trim button */

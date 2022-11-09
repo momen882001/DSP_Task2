@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { FileContext } from '../contexts/fileContext';
+import { FileContext } from '../../contexts/fileContext';
+import './modes.css'
 
 
 function Modes() {
@@ -17,13 +18,13 @@ function Modes() {
     },
     {
       id: 2,
-      label: "Voules",
+      label: "Vowels",
       isChecked: false,
     }
   ]
 
   return (
-    <div>
+    <>
       {modesList.map((mode, index) => {
         return (
           <label key={index}>
@@ -34,7 +35,7 @@ function Modes() {
           </label>
         )
       })}
-    </div>
+    </>
   )
 }
 
