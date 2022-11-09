@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    width: 100vw;
+}
+.waveform-container {
+    margin: 1rem 0rem 8rem 2rem;
+    width: 50%;
+  }
+
+.spectrogram-container.{
+    width: 50%;
+}
