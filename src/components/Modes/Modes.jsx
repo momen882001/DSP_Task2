@@ -27,12 +27,14 @@ function Modes() {
     <>
       {modesList.map((mode, index) => {
         return (
-          <label key={index}>
+          <div className='radio-group'>
+          <label key={index} className='radio'>
             <input type="radio" name='radio' defaultChecked={mode.isChecked} onClick={() => {
               setModesIndex(mode.id)
             }} />
             {mode.label}
           </label>
+          </div>
         )
       })}
     </>

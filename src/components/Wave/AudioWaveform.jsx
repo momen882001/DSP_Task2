@@ -241,7 +241,7 @@ const AudioWaveform = () => {
 				</div>
 			</div>
 		</section>
-		<section className='spectrogram-container'>HELLO DARKNES MY OLD FIREND</section>
+		<section className='spectrogram-container'>HELLO DARKNES MY OLD FIREND </section>
 		</div>
 	);
 };

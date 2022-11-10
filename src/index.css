@@ -39,7 +39,7 @@ nav a {
 /* all icons */
 i.material-icons {
   font-size: 1.5em;
-  color: #1D0B22;
+  color: white;
 }
 
 h1 {
@@ -84,7 +84,7 @@ button.controls {
   font-size: 1.2em;
 }
 
-/* style for both sliders */
+/* style for both sliders
 .slider {
   -webkit-appearance: none;
   appearance: none;
@@ -118,8 +118,8 @@ button.controls {
   height: 15px;
   background: #1D0B22;
   cursor: pointer;
-  border-radius: 50%;
-}
+  border-radius: 50%; */
+/* } */
 
 .volume-slide-container {
   display: flex;
@@ -210,6 +210,7 @@ input:checked+.toggle .off {
   /* all icons */
   i.material-icons {
     font-size: 1.5em;
+    color: white;
   }
 
   h1 {

@@ -26,19 +26,20 @@ function Sliders() {
   };
 
   return (
-    <div>
+    <div className='slider-container'>
     {slidersList.map((element, index) => {
       return (
-        <div>
-          <input
+        <div >
+        <input
             type={"range"}
             id={element.id}
             min={element.min}
             max={element.max}
             step={element.step}
             value={element.value}
+            className='slider'
             onChange={(event) => on_change_slider(event, index)}
-          ></input>
+        ></input>
           {modesIndex === 0 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}
         </div>
       );
