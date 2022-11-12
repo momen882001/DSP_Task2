@@ -3,10 +3,11 @@ import { FileContext } from '../../contexts/fileContext';
 import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../../constants';
 import './sliders.css'
 import Modes from '../Modes/Modes';
+import axios from 'axios'
 
 function Sliders() {
-  // const [mode_1,setMode_1] = useState([]);
-	const { modesIndex, setModesIndex ,slidersList,setSlidersList} = useContext(FileContext);
+	const { modesIndex, setModesIndex ,slidersList,setSlidersList,fileUpdated, setFileUpdated} = useContext(FileContext);
+
 
 
   useEffect(() => {
@@ -18,6 +19,31 @@ function Sliders() {
       setSlidersList(mode3_sliders);
     }
   }, [modesIndex])
+
+  useEffect(() => {
+    if(modesIndex===0){
+     mode2_Sliders.map((mode) => {
+      mode.value=250
+     })
+     mode3_sliders.map((mode) => {
+      mode.value=250
+     })
+    }else if(modesIndex===1) {
+      mode1_Sliders.map((mode) => {
+        mode.value=250
+       })
+      mode3_sliders.map((mode) => {
+        mode.value=250
+       })
+    }else if(modesIndex===2) {
+      mode1_Sliders.map((mode) => {
+        mode.value=250
+       })
+      mode2_Sliders.map((mode) => {
+        mode.value=250
+       })
+    }
+  }, [modesIndex])
   
 
   const on_change_slider = (event, index) => {
@@ -25,6 +51,29 @@ function Sliders() {
     newSliderList[index].value = event.target.value;
     setSlidersList(newSliderList);
   };
+
+ const get_values = () => {
+  const values = []
+  slidersList.map((slider) => {
+    values.push(slider.value)
+  })
+  return values;
+ }
+  
+
+  const handleSubmit = () => {
+    const formData = new FormData();
+		formData.append("array" , get_values())
+    axios.post('http://localhost:8080/sliders',
+    formData
+    ).then((response) => {
+      console.log(response)
+      setFileUpdated('http://localhost:8080/static/modified.mp3')
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
+  console.log(slidersList)
 
   return (
     <div className='sliders-modes-container'>
@@ -48,6 +97,7 @@ function Sliders() {
       );
     })}
     </div>
+    <button onClick={handleSubmit} className='play-btn'>Play</button>
   </div>
   )
 }

@@ -19,6 +19,7 @@ const AudioWaveform = () => {
 	const [wavesurferObjUpdated, setWavesurferObjUpdated] = useState();
 
 	const [playing, setPlaying] = useState(true); // to keep track whether audio is currently playing or not
+	const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [zoom, setZoom] = useState(1); // to control the zoom level of the waveform
 
@@ -105,7 +106,7 @@ const AudioWaveform = () => {
 
 			// once audio updated starts playing, set the state variable to true
 			wavesurferObjUpdated.on('play', () => {
-				setPlaying(true);
+				setPlaying2(true);
 			});
 
 			// once audio starts playing, set the state variable to false
@@ -115,7 +116,7 @@ const AudioWaveform = () => {
 
 			// once audio updated starts playing, set the state variable to false
 			wavesurferObjUpdated.on('finish', () => {
-				setPlaying(false);
+				setPlaying2(false);
 			});
 
 			// if multiple regions are created, then remove all the previous regions so that only 1 is present at any given time
@@ -161,8 +162,12 @@ const AudioWaveform = () => {
 
 	const handlePlayPause = (e) => {
 		wavesurferObj.playPause();
-		wavesurferObjUpdated.playPause();
 		setPlaying(!playing);
+	};
+
+	const handlePlayPause2 = (e) => {
+		wavesurferObjUpdated.playPause();
+		setPlaying2(!playing);
 	};
 
 	const handleReload = (e) => {
@@ -172,6 +177,7 @@ const AudioWaveform = () => {
 		wavesurferObj.play();
 		wavesurferObjUpdated.play();
 		setPlaying(true); // to toggle the play/pause button icon
+		setPlaying2(true); // to toggle the play/pause button icon
 	};
 
 	const handleVolumeSlider = (e) => {
@@ -196,6 +202,16 @@ const AudioWaveform = () => {
 						className='controls'
 						onClick={handlePlayPause}>
 						{playing ? (
+							<i className='material-icons'>pause</i>
+						) : (
+							<i className='material-icons'>play_arrow</i>
+						)}
+					</button>
+					<button
+						title='play/pause'
+						className='controls'
+						onClick={handlePlayPause2}>
+						{playing2 ? (
 							<i className='material-icons'>pause</i>
 						) : (
 							<i className='material-icons'>play_arrow</i>

@@ -66,3 +66,40 @@
     width: 4rem;
  }
 
+ .play-btn {
+  border-radius: 1rem;
+  background-color: #5ca1e1;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  padding: 16px;
+  width: 6rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 7rem 0rem 1.5rem 1.5rem;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  font-size: 1.5rem;
+}
+
+.play-btn:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  top: 16px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.play-btn:hover{
+padding-right: 24px;
+padding-left:8px;
+}
+.play-btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+

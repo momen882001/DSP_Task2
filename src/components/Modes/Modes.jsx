@@ -4,7 +4,7 @@ import './modes.css'
 
 
 function Modes() {
-  const { setModesIndex, } = useContext(FileContext);
+  const { setModesIndex } = useContext(FileContext);
   const modesList = [
     {
       id: 0,
