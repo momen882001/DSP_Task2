@@ -4,7 +4,7 @@ from scipy.io import loadmat
 class logic():
     def  mode_1_ranges(sample_rate):
         fMax = sample_rate//2
-        list_of_range = np.arange(0,fMax,fMax/10)
+        list_of_range = np.arange(0,fMax,fMax/11)
         list_of_lists =[]
         for i in range(len(list_of_range)-1):
             small_list=[list_of_range[i],list_of_range[i+1]]
@@ -14,7 +14,7 @@ class logic():
         final_fou = fou_of_signal
         for iter in range(len(list_of_sliders)):
             freqs_update = logic.select_range(frequencies,list_of_freqs[iter][0],list_of_freqs[iter][1],True)
-            final_fou[freqs_update] = logic.modify_magnitude(freqs_update,fou_of_signal,list_of_sliders[iter])
+            final_fou = logic.modify_magnitude(freqs_update,fou_of_signal,list_of_sliders[iter])
         return final_fou
     def read_ecg_file(file_path):
         signal = loadmat(file_path)
