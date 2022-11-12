@@ -20,7 +20,6 @@ def upload():
         if "file" not in request.files:
             return {"there is an error":'err'},400
         file = request.files["file"]
-        print(file)
         signal,sr = load(file)
         f_signal,freqs = logic.fourier(signal,sr)
         list_of_f = logic.select_range(freqs,100,10000,True)
@@ -32,6 +31,13 @@ def upload():
 def send_attachment(filename):
   return send_from_directory(app.config['UPLOADS_FOLDER'], 
     filename=filename)
+@app.route('/sliders',methods=['GET','POST'])
+def get_sliders_values():
+    if (request.method == 'POST'):
+        if "array" not in request.form:
+            return {"there is an error":'err'},400
+        array = request.form["array"]
+        print(array)
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')
     
