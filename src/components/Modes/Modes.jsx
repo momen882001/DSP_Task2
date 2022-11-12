@@ -24,20 +24,17 @@ function Modes() {
   ]
 
   return (
-    <>
-      {modesList.map((mode, index) => {
+    <div className='radio-group'>
+      {modesList.map((mode) => {
         return (
-          <div className='radio-group'>
-          <label key={index} className='radio'>
-            <input type="radio" name='radio' defaultChecked={mode.isChecked} onClick={() => {
-              setModesIndex(mode.id)
-            }} />
+          
+          <label key={mode.id} className='radio'>
+            <input type="radio" name='radio' defaultChecked={mode.isChecked} onClick={() => {setModesIndex(mode.id)}} />
             {mode.label}
           </label>
-          </div>
         )
       })}
-    </>
+      </div>
   )
 }
 

@@ -1,13 +1,16 @@
+i.material-icons {
+    color: black;
+}
+
 .container {
     display: flex;
-    width: 100vw;
 }
-.waveform-container {
-    margin: 1rem 0rem 8rem 2rem;
-    width: 50%;
-    color: white;
-  }
 
-.spectrogram-container.{
-    width: 50%;
+.waveform-container {
+    width: 55%;
+    margin: 0rem 3rem 0rem 1.5rem ;
+}
+
+.sliders-section {
+    width: 35%;
 }

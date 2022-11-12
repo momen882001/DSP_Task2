@@ -1,12 +1,9 @@
 
-
+/* 
 .radio-group {
     height: 2vh;
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: left;
-
+    flex-direction: row;
 }
 .radio{
     font-size: 20px;
@@ -15,4 +12,8 @@
     margin-left: 10vh;
     color: white;
 
+} */
+
+.radio-group {
+    margin-bottom: 2rem;
 }

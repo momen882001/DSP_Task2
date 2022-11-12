@@ -2,6 +2,7 @@ import React, { useState ,useEffect,useContext } from 'react'
 import { FileContext } from '../../contexts/fileContext';
 import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../../constants';
 import './sliders.css'
+import Modes from '../Modes/Modes';
 
 function Sliders() {
   // const [mode_1,setMode_1] = useState([]);
@@ -26,10 +27,13 @@ function Sliders() {
   };
 
   return (
-    <div className='slider-container'>
+    <div className='sliders-modes-container'>
+      <Modes/>
+      <div className="sliders-container">
     {slidersList.map((element, index) => {
       return (
-        <div >
+        <div className='momen' >
+          <label className='slider-label'>{modesIndex === 0 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}</label>
         <input
             type={"range"}
             id={element.id}
@@ -37,13 +41,13 @@ function Sliders() {
             max={element.max}
             step={element.step}
             value={element.value}
-            className='slider'
+            className='slider-modes'
             onChange={(event) => on_change_slider(event, index)}
         ></input>
-          {modesIndex === 0 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}
         </div>
       );
     })}
+    </div>
   </div>
   )
 }

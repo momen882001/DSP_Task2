@@ -27,6 +27,48 @@
         "max":500,
         "step":1,
         "value":250
+      },
+      {
+        "id":4,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
+      },
+      {
+        "id":5,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
+      },
+      {
+        "id":6,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
+      },
+      {
+        "id":7,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
+      },
+      {
+        "id":8,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
+      },
+      {
+        "id":9,
+        "min":0,
+        "max":500,
+        "step":1,
+        "value":250
       }
   ]
 

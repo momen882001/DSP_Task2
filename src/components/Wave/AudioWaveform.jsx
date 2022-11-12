@@ -4,6 +4,7 @@ import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
 import { FileContext } from '../../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
 import './wave.css'
+import Sliders from '../Sliders/Sliders';
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
@@ -241,7 +242,9 @@ const AudioWaveform = () => {
 				</div>
 			</div>
 		</section>
-		<section className='spectrogram-container'>HELLO DARKNES MY OLD FIREND </section>
+		<section className='sliders-section'>
+			<Sliders/>
+			</section>
 		</div>
 	);
 };
