@@ -2,7 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
 class logic():
-    def final_func(fou_of_signal,frequencies,list_of_freqs,list_of_sliders,sampling_rate=360):
+    def  mode_1_ranges(sample_rate):
+        fMax = sample_rate//2
+        list_of_range = np.arange(0,fMax,fMax/10)
+        list_of_lists =[]
+        for i in range(len(list_of_range)-1):
+            small_list=[list_of_range[i],list_of_range[i+1]]
+            list_of_lists.append(small_list)
+        return list_of_lists
+    def final_func(fou_of_signal,frequencies,list_of_freqs,list_of_sliders):
         final_fou = fou_of_signal
         for iter in range(len(list_of_sliders)):
             freqs_update = logic.select_range(frequencies,list_of_freqs[iter][0],list_of_freqs[iter][1],True)
