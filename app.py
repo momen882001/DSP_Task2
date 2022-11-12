@@ -38,6 +38,7 @@ def get_sliders_values():
             return {"there is an error":'err'},400
         array = request.form["array"]
         print(array)
+        return "hello"
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')
     
