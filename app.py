@@ -21,14 +21,11 @@ def upload():
             return {"there is an error":'err'},400
         file = request.files["file"]
         signal,sr = load(file)
-        f_signal,freqs = logic.fourier(signal,sr)
-        list_of_f = logic.select_range(freqs,100,10000,True)
-        signal_rec = np.fft.irfft(logic.modify_magnitude(list_of_f,f_signal,0.0))
-        completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
-        completeName_2 = os.path.join(app.config['UPLOADS_FOLDER'],'signal.mp3')
-        soundfile.write(completeName,signal_rec,sr)
-        soundfile.write(completeName_2,signal,sr)
-        return("hello")
+        # completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
+        completeName= os.path.join(app.config['UPLOADS_FOLDER'],'signal.mp3')
+        # soundfile.write(completeName,signal_rec,sr)
+        soundfile.write(completeName,signal,sr)
+        return("good")
 @app.route('/static/<path:filename>')
 def send_attachment(filename):
   return send_from_directory(app.config['UPLOADS_FOLDER'], 
@@ -48,7 +45,7 @@ def get_sliders_values():
         re_con = np.fft.irfft(re_fou)
         completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
         soundfile.write(completeName,re_con,sr)
-        return "hello"
+        return "good"
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')
     
