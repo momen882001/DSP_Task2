@@ -23,24 +23,24 @@ function Sliders() {
   useEffect(() => {
     if(modesIndex===0){
      mode2_Sliders.map((mode) => {
-      mode.value=250
+      mode.value=1
      })
      mode3_sliders.map((mode) => {
-      mode.value=250
+      mode.value=1
      })
     }else if(modesIndex===1) {
       mode1_Sliders.map((mode) => {
-        mode.value=250
+        mode.value=1
        })
       mode3_sliders.map((mode) => {
-        mode.value=250
+        mode.value=1
        })
     }else if(modesIndex===2) {
       mode1_Sliders.map((mode) => {
-        mode.value=250
+        mode.value=1
        })
       mode2_Sliders.map((mode) => {
-        mode.value=250
+        mode.value=1
        })
     }
   }, [modesIndex])

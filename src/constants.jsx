@@ -76,25 +76,25 @@
     {
       "id":0,
       "min":0,
-      "max":500,
-      "step":1,
-      "value":250,
+      "max":2,
+      "step":0.1,
+      "value":1,
       "label":"piano"
     },
     {
       "id":1,
       "min":0,
-      "max":500,
-      "step":1,
-      "value":250,
+      "max":2,
+      "step":0.1,
+      "value":1,
       "label":"guitar"
     },
     {
         "id":2,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250,
+        "max":2,
+        "step":0.1,
+        "value":1,
         "label":"drums"
       }
   ]
@@ -103,34 +103,34 @@ export const mode3_sliders = [
     {
         "id":0,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250,
+        "max":2,
+        "step":0.1,
+        "value":1,
         "label":"A"
         
       },
       {
         "id":1,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250,
+        "max":2,
+        "step":0.1,
+        "value":1,
         "label":"B"
       },
       {
         "id":2,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250,
+        "max":2,
+        "step":0.1,
+        "value":1,
         "label":"C"
       },
       {
         "id":3,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250,
+        "max":2,
+        "step":0.1,
+        "value":1,
         "label":"D"
       }
 ]
