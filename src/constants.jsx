@@ -3,72 +3,72 @@
     {
       "id":0,
       "min":0,
-      "max":500,
-      "step":1,
-      "value":250
+      "max":2,
+      "step":0.1,
+      "value":1
     },
     {
       "id":1,
       "min":0,
-      "max":500,
-      "step":1,
-      "value":250
+      "max":2,
+      "step":0.1,
+      "value":1
     },
     {
       "id":2,
       "min":0,
-      "max":500,
-      "step":1,
-      "value":250
+      "max":2,
+      "step":0.1,
+      "value":1
     },
     {
         "id":3,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":4,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":5,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":6,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":7,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":8,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       },
       {
         "id":9,
         "min":0,
-        "max":500,
-        "step":1,
-        "value":250
+        "max":2,
+        "step":0.1,
+        "value":1
       }
   ]
 

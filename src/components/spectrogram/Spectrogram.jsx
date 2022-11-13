@@ -1,12 +1,21 @@
 import React, { useState } from 'react'
 import './Spectrogram.css'
+import axios from 'axios'
 
 function Spectrogram() {
 
     const [showSpectrogram , setShowSpectrogram] = useState(false)
     const handleClick = () => {
        setShowSpectrogram(!showSpectrogram)
+       axios.get(''
+       ).then((response) => {
+        console.log(response)
+       }).catch((err) => {
+        console.log(err)
+       })
     }
+
+
     
 
   return (

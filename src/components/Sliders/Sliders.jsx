@@ -56,6 +56,7 @@ function Sliders() {
   const values = []
   slidersList.map((slider) => {
     values.push(slider.value)
+    values.push(modesIndex)
   })
   return values;
  }
@@ -63,7 +64,7 @@ function Sliders() {
 
   const handleSubmit = () => {
     const formData = new FormData();
-		formData.append("array" , get_values())
+		formData.append("array" , get_values() )
     axios.post('http://localhost:8080/sliders',
     formData
     ).then((response) => {
