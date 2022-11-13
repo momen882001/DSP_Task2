@@ -22,6 +22,7 @@ const AudioWaveform = () => {
 	const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [zoom, setZoom] = useState(1); // to control the zoom level of the waveform
+	const [speed, setSpeed] = useState(1); // to control the zoom level of the waveform
 
 	// create the waveform inside the correct component
 	useEffect(() => {
@@ -159,6 +160,11 @@ const AudioWaveform = () => {
 		if (wavesurferObjUpdated) wavesurferObjUpdated.zoom(zoom);
 	}, [zoom, wavesurferObjUpdated]);
 
+	// set speed level of the wavesurfer object , whenever the zoom variable in state is changed
+	useEffect(() => {
+		if (wavesurferObj) wavesurferObj.setPlaybackRate(speed);
+	}, [speed, wavesurferObj]);
+
 
 	const handlePlayPause = (e) => {
 		wavesurferObj.playPause();
@@ -186,6 +192,10 @@ const AudioWaveform = () => {
 
 	const handleZoomSlider = (e) => {
 		setZoom(e.target.value);
+	};
+
+	const handleSpeedSlider = (e) => {
+		setSpeed(e.target.value);
 	};
 
 
@@ -254,6 +264,16 @@ const AudioWaveform = () => {
 							onChange={handleVolumeSlider}
 							className='slider volume-slider'
 						/>
+						<input
+							type='range'
+							min='0.25'
+							max='2'
+							step='0.25'
+							value={speed}
+							onChange={handleSpeedSlider}
+							className='slider volume-slider'
+						/>
+						x{speed}
 					</div>
 				</div>
 			</div>
