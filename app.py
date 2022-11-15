@@ -7,6 +7,8 @@ from logic import logic
 import numpy as np
 import soundfile
 from IPython.display import Audio
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import savefig
 app = Flask(__name__)
 CORS(app)
 UPLOADS_FOLDER = './static'
@@ -21,9 +23,7 @@ def upload():
             return {"there is an error":'err'},400
         file = request.files["file"]
         signal,sr = load(file)
-        # completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
         completeName= os.path.join(app.config['UPLOADS_FOLDER'],'signal.mp3')
-        # soundfile.write(completeName,signal_rec,sr)
         soundfile.write(completeName,signal,sr)
         return("good")
 @app.route('/static/<path:filename>')
@@ -42,11 +42,25 @@ def get_sliders_values():
         mode = slider_list[-1]
         slider_list = slider_list[:len(slider_list)-1]
         f_signal,freqs = logic.fourier(signal,sr)
-        # list_f = logic.mode_1_ranges(sr)
+        fig ,(ax1,ax2) = plt.subplots(1,2)
+        fig.set_figheight(5)
+        fig.set_figwidth(15)
+        fig.tight_layout()
+        ax1.specgram(signal,NFFT=5000, Fs = sr, cmap="jet")
+        ax1.set_title('Spectrogram - Before')
+        ax1.set_xlabel("Time")
+        ax1.set_ylabel("Freq")
         re_fou = logic.final_func(f_signal,freqs,sr,slider_list,mode)
         re_con = np.fft.irfft(re_fou)
+        ax2.specgram(re_con,NFFT=5000, Fs = sr, cmap="jet")
+        ax2.set_title('Spectrogram - After')
+        ax2.set_xlabel("Time")
+        ax2.set_ylabel("Freq")
         completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
+        completeName_i = os.path.join(app.config['UPLOADS_FOLDER'],'original.png')
         soundfile.write(completeName,re_con,sr)
+        plt.tight_layout()
+        plt.savefig( completeName_i,format='png')
         return "good"
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')

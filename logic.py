@@ -40,3 +40,8 @@ class logic():
         else:
             selected_freqs = (frequncies>min)&(frequncies<max)
         return selected_freqs
+    def spectrogram(signal,sampling_frequency):
+        fig = plt.specgram(signal,NFFT=5000, Fs = sampling_frequency, cmap="jet")
+        plt.title('Spectrogram')
+        plt.xlabel("Time")
+        plt.ylabel("Freq")
