@@ -5,7 +5,7 @@ import './upload.css'
 
 const UploadAudio = ({}) => {
 	const inputFile = useRef(null);
-	const { fileURL, setFileURL } = useContext(FileContext);
+	const { fileURL, setFileURL , version , setVersion } = useContext(FileContext);
 	const [file, setFile] = useState(null);
 
 	useEffect(() => {

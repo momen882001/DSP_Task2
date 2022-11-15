@@ -38,7 +38,7 @@ def get_sliders_values():
         array = request.form["array"]
         signal,sr = load('./static/signal.mp3')
         my_list = array.split(",")
-        slider_list = [int(i) for i in my_list]
+        slider_list = [float(i) for i in my_list]
         f_signal,freqs = logic.fourier(signal,sr)
         list_f = logic.mode_1_ranges(sr)
         re_fou = logic.final_func(f_signal,freqs,list_f,slider_list)

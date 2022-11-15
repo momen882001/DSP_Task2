@@ -3,16 +3,15 @@ import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
 import { FileContext } from '../../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
-import './wave.css'
 import Sliders from '../Sliders/Sliders';
+import './wave.css'
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
 	const timelineRef = useRef(null);
 
 	// fetch file url from the context
-	const { fileURL, setFileURL } = useContext(FileContext);
-	const { fileUpdated, setFileUpdated } = useContext(FileContext);
+	const { fileURL, setFileURL , fileUpdated, setFileUpdated } = useContext(FileContext);
 
 	// crate an instance of the wavesurfer
 	const [wavesurferObj, setWavesurferObj] = useState();
@@ -22,7 +21,7 @@ const AudioWaveform = () => {
 	const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [zoom, setZoom] = useState(1); // to control the zoom level of the waveform
-	const [speed, setSpeed] = useState(1); // to control the zoom level of the waveform
+	const [speed, setSpeed] = useState(1); // to control the speed level of the waveform
 
 	// create the waveform inside the correct component
 	useEffect(() => {
@@ -83,21 +82,23 @@ const AudioWaveform = () => {
 	useEffect(() => {
 		if (fileUpdated && wavesurferObjUpdated) {
 			wavesurferObjUpdated.load(fileUpdated);
+			wavesurferObj.stop();
+			wavesurferObj.play();
 		}
-	}, [fileUpdated, wavesurferObjUpdated]);
+	}, [fileUpdated , wavesurferObjUpdated , wavesurferObj]);
+
+	
 
 	useEffect(() => {
 		if (wavesurferObj && wavesurferObjUpdated) {
 			// once the waveform is ready, play the audio
 			wavesurferObj.on('ready', () => {
 				wavesurferObj.play();
-				wavesurferObj.enableDragSelection({}); // to select the region to be trimmed
 			});
 
 			// once the waveform updated is ready, play the audio
 			wavesurferObjUpdated.on('ready', () => {
 				wavesurferObjUpdated.play();
-				wavesurferObjUpdated.enableDragSelection({}); // to select the region to be trimmed
 			});
 
 			// once audio starts playing, set the state variable to true
@@ -160,9 +161,12 @@ const AudioWaveform = () => {
 		if (wavesurferObjUpdated) wavesurferObjUpdated.zoom(zoom);
 	}, [zoom, wavesurferObjUpdated]);
 
-	// set speed level of the wavesurfer object , whenever the zoom variable in state is changed
+	// set speed level of the wavesurfer object , whenever the speed variable in state is changed
 	useEffect(() => {
-		if (wavesurferObj) wavesurferObj.setPlaybackRate(speed);
+		if (wavesurferObj) {
+			 wavesurferObj.setPlaybackRate(speed);
+			 wavesurferObjUpdated.setPlaybackRate(speed);
+		}
 	}, [speed, wavesurferObj]);
 
 

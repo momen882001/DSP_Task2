@@ -5,6 +5,7 @@ const FileContext = createContext();
 const FileContextProvider = ({ children }) => {
 	const [fileURL, setFileURL] = useState('');
 	const [fileUpdated, setFileUpdated] = useState('');
+	const [version, setVersion] = useState(0);
 	const [modesIndex, setModesIndex] = useState(0);
 	const [slidersList,setSlidersList] =useState(mode1_Sliders)
 	return (

@@ -6,7 +6,7 @@ import Modes from '../Modes/Modes';
 import axios from 'axios'
 
 function Sliders() {
-	const { modesIndex, setModesIndex ,slidersList,setSlidersList,fileUpdated, setFileUpdated} = useContext(FileContext);
+	const { modesIndex,slidersList,setSlidersList, setFileUpdated } = useContext(FileContext);
 
 
 
@@ -56,7 +56,7 @@ function Sliders() {
   const values = []
   slidersList.map((slider) => {
     values.push(slider.value)
-    values.push(modesIndex)
+    // values.push(modesIndex)
   })
   return values;
  }
@@ -69,6 +69,7 @@ function Sliders() {
     formData
     ).then((response) => {
       console.log(response)
+      setFileUpdated('')
       setFileUpdated('http://localhost:8080/static/modified.mp3')
     }).catch((err) => {
       console.log(err)

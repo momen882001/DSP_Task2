@@ -10,32 +10,6 @@ body {
 }
 
 
-/* the container where wavesurfer adds the audio waveform */
-
-
-/* style for the navbar */
-nav {
-  display: flex;
-  align-items: center;
-  height: 3.5em;
-  padding: 0 2em;
-  background-color: #1D0B22;
-  color: white;
-  font-size: large;
-  font-weight: bold;
-}
-
-nav>.brand {
-  display: flex;
-  color: white;
-  align-items: center;
-}
-
-nav a {
-  text-decoration: none;
-  color: inherit;
-}
-
 /* all icons */
 i.material-icons {
   font-size: 1.5em;
@@ -46,19 +20,6 @@ h1 {
   color: #1D0B22
 }
 
-/* style for the trim button */
-.trim {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background: #1D0B22;
-  color: white;
-  width: 5em;
-  border-radius: 2px;
-  cursor: pointer;
-  padding: 0.25em;
-  border: 1px solid rebeccapurple;
-}
 
 /* all the button controls */
 div.all-controls {

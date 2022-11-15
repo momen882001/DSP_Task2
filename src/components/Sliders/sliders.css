@@ -67,12 +67,12 @@
  }
 
  .play-btn {
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   background-color: #5ca1e1;
   border: none;
   color: #fff;
   text-align: center;
-  font-size: 32px;
+  font-size: 25px;
   padding: 16px;
   width: 6rem;
   transition: all 0.5s;
