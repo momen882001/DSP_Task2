@@ -56,8 +56,8 @@ function Sliders() {
   const values = []
   slidersList.map((slider) => {
     values.push(slider.value)
-    // values.push(modesIndex)
   })
+  values.push(modesIndex)
   return values;
  }
   

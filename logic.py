@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
 class logic():
+    list_of_music = [[2,1000],[1000,2500],[2500,9000]]
+    list_of_vowels = [[250,700],[1000,1500],[4000,5000],[0,100]]
+    list_of_modes = [list_of_music,list_of_vowels]
     def  mode_1_ranges(sample_rate):
         fMax = sample_rate//2
         list_of_range = np.arange(0,fMax,fMax/11)
@@ -10,8 +13,12 @@ class logic():
             small_list=[list_of_range[i],list_of_range[i+1]]
             list_of_lists.append(small_list)
         return list_of_lists
-    def final_func(fou_of_signal,frequencies,list_of_freqs,list_of_sliders):
+    def final_func(fou_of_signal,frequencies,samplingfreq,list_of_sliders,mode):
         final_fou = fou_of_signal
+        if mode == 0:
+            list_of_freqs = logic.mode_1_ranges(samplingfreq)
+        else:
+            list_of_freqs = logic.list_of_modes[int(mode)-1]
         for iter in range(len(list_of_sliders)):
             freqs_update = logic.select_range(frequencies,list_of_freqs[iter][0],list_of_freqs[iter][1],True)
             final_fou = logic.modify_magnitude(freqs_update,fou_of_signal,list_of_sliders[iter])
