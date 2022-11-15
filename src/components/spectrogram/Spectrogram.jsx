@@ -1,27 +1,22 @@
 import React, { useState } from 'react'
 import './Spectrogram.css'
-import axios from 'axios'
 
 function Spectrogram() {
 
     const [showSpectrogram , setShowSpectrogram] = useState(false)
+    const [spec , setSpec] = useState('http://localhost:8080/static/original.png')
+
     const handleClick = () => {
        setShowSpectrogram(!showSpectrogram)
-       axios.get(''
-       ).then((response) => {
-        console.log(response)
-       }).catch((err) => {
-        console.log(err)
-       })
+       setSpec('')
+       setSpec('http://localhost:8080/static/original.png')
     }
 
-
-    
 
   return (
     <div>
         <button onClick={handleClick} className="spectrogram-btn">Spectrogram</button>
-        {showSpectrogram ? <p>Mo'men</p> : <p>Mohamed</p>}
+        {showSpectrogram ? <img src={spec} alt="not reloaded" /> : null }
     </div>
   )
 }
