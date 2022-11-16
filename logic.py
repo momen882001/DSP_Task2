@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
+import librosa
 class logic():
     list_of_music = [[2,1000],[1000,2500],[2500,9000]]
     list_of_vowels = [[330,3300],[370,2650],[4000,5000],[0,100]]
     list_of_modes = [list_of_music,list_of_vowels]
-    def  mode_1_ranges(sample_rate):
+    def  first_mode_ranges(sample_rate):
         fMax = sample_rate//2
         list_of_range = np.arange(0,fMax,fMax/11)
         list_of_lists =[]
@@ -16,9 +17,9 @@ class logic():
     def final_func(fou_of_signal,frequencies,samplingfreq,list_of_sliders,mode):
         final_fou = fou_of_signal
         if mode == 0:
-            list_of_freqs = logic.mode_1_ranges(samplingfreq)
+            list_of_freqs = logic.first_mode_ranges(samplingfreq)
         else:
-            list_of_freqs = logic.list_of_modes[int(mode)-1]
+            list_of_freqs = logic.list_of_modes[mode-1]
         for iter in range(len(list_of_sliders)):
             freqs_update = logic.select_range(frequencies,list_of_freqs[iter][0],list_of_freqs[iter][1],True)
             final_fou = logic.modify_magnitude(freqs_update,fou_of_signal,list_of_sliders[iter])
@@ -40,8 +41,6 @@ class logic():
         else:
             selected_freqs = (frequncies>min)&(frequncies<max)
         return selected_freqs
-    def spectrogram(signal,sampling_frequency):
-        fig = plt.specgram(signal,NFFT=5000, Fs = sampling_frequency, cmap="jet")
-        plt.title('Spectrogram')
-        plt.xlabel("Time")
-        plt.ylabel("Freq")
+    def voice_change(signal,sampling_frequency,shift_factor):
+        changed_voice = librosa.effects.pitch_shift(signal, sr=sampling_frequency, n_steps=shift_factor)
+        return changed_voice

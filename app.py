@@ -40,6 +40,7 @@ def get_sliders_values():
         my_list = array.split(",")
         slider_list = [float(i) for i in my_list]
         mode = slider_list[-1]
+        mode = int(mode)
         slider_list = slider_list[:len(slider_list)-1]
         f_signal,freqs = logic.fourier(signal,sr)
         fig ,(ax1,ax2) = plt.subplots(1,2)
@@ -50,8 +51,11 @@ def get_sliders_values():
         ax1.set_title('Spectrogram - Before')
         ax1.set_xlabel("Time")
         ax1.set_ylabel("Freq")
-        re_fou = logic.final_func(f_signal,freqs,sr,slider_list,mode)
-        re_con = np.fft.irfft(re_fou)
+        if mode == 4:
+            re_con = logic.voice_change(signal,sr,slider_list)
+        else:
+            re_fou = logic.final_func(f_signal,freqs,sr,slider_list,mode)
+            re_con = np.fft.irfft(re_fou)
         ax2.specgram(re_con,NFFT=5000, Fs = sr, cmap="jet")
         ax2.set_title('Spectrogram - After')
         ax2.set_xlabel("Time")
