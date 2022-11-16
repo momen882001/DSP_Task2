@@ -79,7 +79,7 @@
       "max":2,
       "step":0.1,
       "value":1,
-      "label":"piano"
+      "label":"Trumpet"
     },
     {
       "id":1,
@@ -87,7 +87,7 @@
       "max":2,
       "step":0.1,
       "value":1,
-      "label":"guitar"
+      "label":"Cello"
     },
     {
         "id":2,
@@ -95,7 +95,7 @@
         "max":2,
         "step":0.1,
         "value":1,
-        "label":"drums"
+        "label":"Saxophone"
       }
   ]
 
@@ -106,7 +106,7 @@ export const mode3_sliders = [
         "max":2,
         "step":0.1,
         "value":1,
-        "label":"A"
+        "label":"O"
         
       },
       {
@@ -117,20 +117,20 @@ export const mode3_sliders = [
         "value":1,
         "label":"B"
       },
-      {
-        "id":2,
-        "min":0,
-        "max":2,
-        "step":0.1,
-        "value":1,
-        "label":"C"
-      },
-      {
-        "id":3,
-        "min":0,
-        "max":2,
-        "step":0.1,
-        "value":1,
-        "label":"D"
-      }
+      // {
+      //   "id":2,
+      //   "min":0,
+      //   "max":2,
+      //   "step":0.1,
+      //   "value":1,
+      //   "label":"C"
+      // },
+      // {
+      //   "id":3,
+      //   "min":0,
+      //   "max":2,
+      //   "step":0.1,
+      //   "value":1,
+      //   "label":"D"
+      // }
 ]

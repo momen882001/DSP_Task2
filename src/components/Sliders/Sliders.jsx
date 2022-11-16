@@ -6,7 +6,7 @@ import Modes from '../Modes/Modes';
 import axios from 'axios'
 
 function Sliders() {
-	const { modesIndex,slidersList,setSlidersList, setFileUpdated } = useContext(FileContext);
+  const { modesIndex,slidersList,setSlidersList, setFileUpdated ,spec , setSpec} = useContext(FileContext);
 
 
 
@@ -71,6 +71,13 @@ function Sliders() {
       console.log(response)
       setFileUpdated('')
       setFileUpdated('http://localhost:8080/static/modified.mp3')
+
+      axios.get('http://localhost:8080/static/original.png').then((response) => {
+        setSpec('')
+        setSpec('http://localhost:8080/static/original.png')
+       }).catch((err) => {
+        console.log(err)
+       })
     }).catch((err) => {
       console.log(err)
     })

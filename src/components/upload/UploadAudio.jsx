@@ -5,8 +5,8 @@ import './upload.css'
 
 const UploadAudio = ({}) => {
 	const inputFile = useRef(null);
-	const { fileURL, setFileURL , version , setVersion } = useContext(FileContext);
 	const [file, setFile] = useState(null);
+	const { fileURL, setFileURL , setFileUpdated , fileUpdated } = useContext(FileContext);
 
 	useEffect(() => {
 		if (file) {
@@ -27,6 +27,7 @@ const UploadAudio = ({}) => {
 			formData
 		  ).then((response) => {
 		   console.log(response)
+		   setFileUpdated('http://localhost:8080/static/signal.mp3')
 		  }).catch((err) => {
 		   console.log(err)
 		  })
