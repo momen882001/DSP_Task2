@@ -51,8 +51,8 @@ def get_sliders_values():
         ax1.set_title('Spectrogram - Before')
         ax1.set_xlabel("Time")
         ax1.set_ylabel("Freq")
-        if mode == 4:
-            re_con = logic.voice_change(signal,sr,slider_list)
+        if mode == 3:
+            re_con = logic.voice_change(signal,sr,slider_list[0])
         else:
             re_fou = logic.final_func(f_signal,freqs,sr,slider_list,mode)
             re_con = np.fft.irfft(re_fou)
