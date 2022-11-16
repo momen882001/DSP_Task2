@@ -1,3 +1,9 @@
+body {
+  background-color: 		#f9f1f1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+}
+
 /* body {
   background: -webkit-gradient(linear, left top, left bottom, from(#0D324D), to(#7F5A83)) fixed;
 }
@@ -67,14 +73,14 @@
  }
 
  .play-btn {
-  border-radius: 0.4rem;
+  border-radius: 0 rem;
   background-color: #5ca1e1;
   border: none;
   color: #fff;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   padding: 16px;
-  width: 6rem;
+  width: 5rem;
   transition: all 0.5s;
   cursor: pointer;
   margin: 7rem 0rem 1.5rem 1.5rem;

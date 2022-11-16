@@ -8,7 +8,9 @@ import axios from 'axios'
 function Sliders() {
   const { modesIndex,slidersList,setSlidersList, setFileUpdated ,spec , setSpec} = useContext(FileContext);
 
-
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+</style>
 
   useEffect(() => {
     if(modesIndex===0){
