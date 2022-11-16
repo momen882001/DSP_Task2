@@ -1,6 +1,6 @@
 import React, { useState ,useEffect,useContext } from 'react'
 import { FileContext } from '../../contexts/fileContext';
-import { mode1_Sliders, mode2_Sliders,mode3_sliders } from '../../constants';
+import { mode1_Sliders, mode2_Sliders,mode3_sliders, mode4_sliders } from '../../constants';
 import './sliders.css'
 import Modes from '../Modes/Modes';
 import axios from 'axios'
@@ -17,6 +17,8 @@ function Sliders() {
       setSlidersList(mode2_Sliders);
     }else  if(modesIndex===2){
       setSlidersList(mode3_sliders);
+    }else  if(modesIndex===3){
+      setSlidersList(mode4_sliders);
     }
   }, [modesIndex])
 
@@ -28,6 +30,9 @@ function Sliders() {
      mode3_sliders.map((mode) => {
       mode.value=1
      })
+     mode4_sliders.map((mode) => {
+      mode.value=1
+     })
     }else if(modesIndex===1) {
       mode1_Sliders.map((mode) => {
         mode.value=1
@@ -35,11 +40,27 @@ function Sliders() {
       mode3_sliders.map((mode) => {
         mode.value=1
        })
+      mode4_sliders.map((mode) => {
+        mode.value=1
+       })
     }else if(modesIndex===2) {
       mode1_Sliders.map((mode) => {
         mode.value=1
        })
       mode2_Sliders.map((mode) => {
+        mode.value=1
+       })
+      mode4_sliders.map((mode) => {
+        mode.value=1
+       })
+    }else if(modesIndex === 3) {
+      mode1_Sliders.map((mode) => {
+        mode.value=1
+       })
+      mode2_Sliders.map((mode) => {
+        mode.value=1
+       })
+      mode3_sliders.map((mode) => {
         mode.value=1
        })
     }
@@ -91,7 +112,7 @@ function Sliders() {
     {slidersList.map((element, index) => {
       return (
         <div className='momen' >
-          <label className='slider-label'>{modesIndex === 0 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}</label>
+          <label className='slider-label'>{modesIndex === 0 || modesIndex === 3 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}</label>
         <input
             type={"range"}
             id={element.id}

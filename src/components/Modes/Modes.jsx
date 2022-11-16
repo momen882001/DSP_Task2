@@ -20,6 +20,11 @@ function Modes() {
       id: 2,
       label: "Vowels",
       isChecked: false,
+    },
+    {
+      id: 3,
+      label: "Elective",
+      isChecked: false,
     }
   ]
 

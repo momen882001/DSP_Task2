@@ -116,21 +116,16 @@ export const mode3_sliders = [
         "step":0.1,
         "value":1,
         "label":"B"
-      },
-      // {
-      //   "id":2,
-      //   "min":0,
-      //   "max":2,
-      //   "step":0.1,
-      //   "value":1,
-      //   "label":"C"
-      // },
-      // {
-      //   "id":3,
-      //   "min":0,
-      //   "max":2,
-      //   "step":0.1,
-      //   "value":1,
-      //   "label":"D"
-      // }
+      }
+]
+
+export const mode4_sliders = [
+    {
+        "id":0,
+        "min":0,
+        "max":2,
+        "step":0.1,
+        "value":1,
+        "label":"Voice Changer"
+      }
 ]
