@@ -31,7 +31,7 @@ function Sliders() {
       mode.value=1
      })
      mode4_sliders.map((mode) => {
-      mode.value=1
+      mode.value=0
      })
     }else if(modesIndex===1) {
       mode1_Sliders.map((mode) => {
@@ -41,7 +41,7 @@ function Sliders() {
         mode.value=1
        })
       mode4_sliders.map((mode) => {
-        mode.value=1
+        mode.value=0
        })
     }else if(modesIndex===2) {
       mode1_Sliders.map((mode) => {
@@ -51,7 +51,7 @@ function Sliders() {
         mode.value=1
        })
       mode4_sliders.map((mode) => {
-        mode.value=1
+        mode.value=0
        })
     }else if(modesIndex === 3) {
       mode1_Sliders.map((mode) => {
