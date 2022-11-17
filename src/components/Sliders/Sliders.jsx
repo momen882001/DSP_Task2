@@ -95,12 +95,6 @@ function Sliders() {
       setFileUpdated('')
       setFileUpdated('http://localhost:8080/static/modified.mp3')
 
-      axios.get('http://localhost:8080/static/original.png').then((response) => {
-        setSpec('')
-        setSpec('http://localhost:8080/static/original.png')
-       }).catch((err) => {
-        console.log(err)
-       })
     }).catch((err) => {
       console.log(err)
     })

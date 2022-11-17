@@ -7,16 +7,29 @@ import Sliders from '../Sliders/Sliders';
 function Spectrogram() {
 
     const {spec , setSpec}=useContext(FileContext)
+
+    const [showspec,setShowSpec] = useState(false)
+
+    const handleClick = () => {
+      setShowSpec(!showspec)
+   
+      axios.get('http://localhost:8080/static/original.png').then((response) => {
+        setSpec('')
+        setSpec('http://localhost:8080/static/original.png')
+       }).catch((err) => {
+        console.log(err)
+       })
+    }
     
 
   return (
     <div className='spec-cont'>
       <section>
-      <div>hi</div>
-
+      <Sliders/>
       </section>
       <section>
-      <Sliders/>
+      <button onClick={handleClick}>Spectrogram</button>
+      {showspec ? <img src={spec} alt="" /> : null}
       </section>
     </div>
   )

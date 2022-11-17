@@ -18,11 +18,10 @@ const AudioWaveform = () => {
 	const [wavesurferObjUpdated, setWavesurferObjUpdated] = useState();
 
 	const [playing, setPlaying] = useState(true); // to keep track whether audio is currently playing or not
-	// const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
-	const [volume2, setVolume2] = useState(0); // to control volume level of the audio. 0-mute, 1-max
 	const [zoom, setZoom] = useState(500); // to control the zoom level of the waveform
 	const [speed, setSpeed] = useState(1); // to control the speed level of the waveform
+	const [volumeMode , setVolumeMode] = useState(false)
 
 	// create the waveform inside the correct component
 	useEffect(() => {
@@ -146,13 +145,17 @@ const AudioWaveform = () => {
 
 	// set volume of the wavesurfer object, whenever volume variable in state is changed
 	useEffect(() => {
-		if (wavesurferObj) wavesurferObj.setVolume(volume);
-	}, [volume, wavesurferObj]);
+		if (wavesurferObj&&wavesurferObjUpdated) {
+			if(volumeMode === false) {
+				wavesurferObj.setVolume(volume)
+				wavesurferObjUpdated.setVolume(0)
+			} else if(volumeMode === true) {
+				wavesurferObj.setVolume(0)
+				wavesurferObjUpdated.setVolume(volume)
+			}
+		}
+	}, [volume, wavesurferObj , wavesurferObjUpdated , volumeMode]);
 
-	// set volume 2 of the wavesurfer object updated, whenever volume variable in state is changed
-	useEffect(() => {
-		if (wavesurferObjUpdated) wavesurferObjUpdated.setVolume(volume2)
-	}, [volume2, wavesurferObjUpdated]);
 
 	// set zoom level of the wavesurfer object, whenever the zoom variable in state is changed
 	useEffect(() => {
@@ -179,10 +182,6 @@ const AudioWaveform = () => {
 		setPlaying(!playing);
 	};
 
-	// const handlePlayPause2 = (e) => {
-	// 	wavesurferObjUpdated.playPause();
-	// 	setPlaying2(!playing);
-	// };
 
 	const handleReload = (e) => {
 		// stop will return the audio to 0s, then play it again
@@ -191,23 +190,12 @@ const AudioWaveform = () => {
 		wavesurferObjUpdated.stop();
 		wavesurferObjUpdated.play();
 		setPlaying(true); // to toggle the play/pause button icon
-		// setPlaying2(true); // to toggle the play/pause button icon
 	};
-
-	// const handleReload2 = (e) => {
-	// 	// stop will return the audio to 0s, then play it again
-	// 	wavesurferObjUpdated.stop();
-	// 	setPlaying(true); // to toggle the play/pause button icon
-	// 	// setPlaying2(true); // to toggle the play/pause button icon
-	// };
 
 	const handleVolumeSlider = (e) => {
 		setVolume(e.target.value);
 	};
 
-	const handleVolumeSlider2 = (e) => {
-		setVolume2(e.target.value);
-	};
 
 	const handleZoomSlider = (e) => {
 		setZoom(e.target.value);
@@ -217,6 +205,10 @@ const AudioWaveform = () => {
 		setSpeed(e.target.value);
 	};
 
+	const handleClick = () => {
+      setVolumeMode(!volumeMode)
+	}
+
 
 
 	return (
@@ -224,35 +216,7 @@ const AudioWaveform = () => {
 		<section className='waveform-container'>
 			<div ref={wavesurferRef} id='waveform' />
 			<div ref={timelineRef} id='wave-timeline' />
-			<div className='all-controls'>
-				<div className='left-container'>
-				{/* <button
-						title='reload'
-						className='controls'
-						onClick={handleReload}>
-						<i className='material-icons'>replay</i>
-					</button> */}
-				</div>
-				<div className='right-container'>
-					<div className='volume-slide-container'>
-					{volume > 0 ? (
-							<i className='material-icons'>volume_up</i>
-						) : (
-							<i className='material-icons'>volume_off</i>
-						)}
-						<input
-							type='range'
-							min='0'
-							max='1'
-							step='0.05'
-							value={volume}
-							onChange={handleVolumeSlider}
-							className='slider volume-slider'
-						/>
-					</div>
-					</div>
-				
-			</div>
+		
 			<div className='all-controls'>
 				<div className='left-container'>
 				<button
@@ -271,6 +235,7 @@ const AudioWaveform = () => {
 						onClick={handleReload}>
 						<i className='material-icons'>replay</i>
 					</button>
+					<button onClick={handleClick}>Wave Toggle</button>
 				</div>
 				<div className='right-container'>
 					<div className='volume-slide-container'>
@@ -288,7 +253,7 @@ const AudioWaveform = () => {
 						<i className='material-icons'>add_circle</i>
 					</div>
 					<div className='volume-slide-container'>
-						{volume2 > 0 ? (
+					{volume > 0 ? (
 							<i className='material-icons'>volume_up</i>
 						) : (
 							<i className='material-icons'>volume_off</i>
@@ -298,8 +263,8 @@ const AudioWaveform = () => {
 							min='0'
 							max='1'
 							step='0.05'
-							value={volume2}
-							onChange={handleVolumeSlider2}
+							value={volume}
+							onChange={handleVolumeSlider}
 							className='slider volume-slider'
 						/>
 						<input
