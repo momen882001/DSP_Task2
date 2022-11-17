@@ -51,6 +51,3 @@ class logic():
         else:
             selected_freqs = (frequncies>min)&(frequncies<max)
         return selected_freqs
-    def voice_change(signal,sampling_frequency,shift_factor):
-        changed_voice = librosa.effects.pitch_shift(signal, sr=sampling_frequency, n_steps=shift_factor)
-        return changed_voice

@@ -21,7 +21,7 @@ const AudioWaveform = () => {
 	// const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [volume2, setVolume2] = useState(0); // to control volume level of the audio. 0-mute, 1-max
-	const [zoom, setZoom] = useState(5000); // to control the zoom level of the waveform
+	const [zoom, setZoom] = useState(4000); // to control the zoom level of the waveform
 	const [speed, setSpeed] = useState(1); // to control the speed level of the waveform
 
 	// create the waveform inside the correct component
@@ -280,8 +280,8 @@ const AudioWaveform = () => {
 						</i>
 						<input
 							type='range'
-							min='5000'
-							max='7000'
+							min='1'
+							max='4000'
 							value={zoom}
 							onChange={handleZoomSlider}
 							class='slider zoom-slider'

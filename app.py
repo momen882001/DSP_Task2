@@ -43,9 +43,9 @@ def get_sliders_values():
         mode = int(mode)
         slider_list = slider_list[:len(slider_list)-1]
         f_signal,freqs = logic.fourier(signal,sr)
-        fig ,(ax1,ax2) = plt.subplots(1,2)
-        fig.set_figheight(5)
-        fig.set_figwidth(15)
+        fig ,(ax1,ax2) = plt.subplots(2,1)
+        fig.set_figheight(10)
+        fig.set_figwidth(10)
         fig.tight_layout()
         ax1.specgram(signal,NFFT=5000, Fs = sr, cmap="jet")
         ax1.set_title('Spectrogram - Before')
