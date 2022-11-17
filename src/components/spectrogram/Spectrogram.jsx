@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { FileContext } from '../../contexts/fileContext';
 import axios from 'axios';
 import './Spectrogram.css'
+import Sliders from '../Sliders/Sliders';
 
 function Spectrogram() {
 
@@ -9,8 +10,14 @@ function Spectrogram() {
     
 
   return (
-    <div>
-       <img src={spec} alt="" />
+    <div className='spec-cont'>
+      <section>
+      <div>hi</div>
+
+      </section>
+      <section>
+      <Sliders/>
+      </section>
     </div>
   )
 }

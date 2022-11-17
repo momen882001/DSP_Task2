@@ -21,7 +21,7 @@ const AudioWaveform = () => {
 	// const [playing2, setPlaying2] = useState(true); // to keep track whether audio is currently playing or not
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [volume2, setVolume2] = useState(0); // to control volume level of the audio. 0-mute, 1-max
-	const [zoom, setZoom] = useState(4000); // to control the zoom level of the waveform
+	const [zoom, setZoom] = useState(500); // to control the zoom level of the waveform
 	const [speed, setSpeed] = useState(1); // to control the speed level of the waveform
 
 	// create the waveform inside the correct component
@@ -34,9 +34,10 @@ const AudioWaveform = () => {
 					autoCenter: true,
 					cursorColor: 'blue',
 					loopSelection: true,
-					waveColor: '#211027',
-					progressColor: '#5ca1e1',
+					waveColor: '#000080',
+					progressColor: 'white',
 					responsive: true,
+					height:210,
 					plugins: [
 						TimelinePlugin.create({
 							container: '#wave-timeline',
@@ -58,8 +59,9 @@ const AudioWaveform = () => {
 					autoCenter: true,
 					cursorColor: 'blue',
 					loopSelection: true,
-					waveColor: '#211027',
-					progressColor: '#5ca1e1',
+					waveColor: '#000080',
+					progressColor: 'white',
+					height:210,
 					responsive: true,
 					plugins: [
 						TimelinePlugin.create({
@@ -251,9 +253,6 @@ const AudioWaveform = () => {
 					</div>
 				
 			</div>
-
-			<div ref={wavesurferRef} id='waveformUpdated' />
-			<div ref={timelineRef} id='wave-timeline' />
 			<div className='all-controls'>
 				<div className='left-container'>
 				<button
@@ -319,7 +318,8 @@ const AudioWaveform = () => {
 
 		</section>
 		<section className='sliders-section'>
-			<Sliders/>
+		<div ref={wavesurferRef} id='waveformUpdated' />
+			
 			</section>
 		</div>
 	);

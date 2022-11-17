@@ -129,7 +129,7 @@ function Sliders() {
       );
     })}
     </div>
-    <button onClick={handleSubmit} className='play-btn'>Play</button>
+    <button onClick={handleSubmit} className='play-btn'>Adjust</button>
   </div>
   )
 }

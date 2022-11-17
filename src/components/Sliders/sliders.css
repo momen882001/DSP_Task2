@@ -1,5 +1,5 @@
 body {
-  background-color: 		#f9f1f1;
+  background-image: linear-gradient(#8693AB, #BDD4E7);
   font-family: 'Poppins', sans-serif;
   font-size: 16.5px;
   font-weight: bold;
@@ -8,12 +8,29 @@ body {
 img {
   width: 58rem;
   margin-left: 24rem;
-  border: 2px solid #5ca1e1;
+  border: 2px solid #000080;
   padding: 0px;
 	
 }
 label {
   margin-right: 0rem;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000080;
+  border-radius: 10px;
 }
 
 /* body {
@@ -69,16 +86,44 @@ label {
 
  .slider-label {
     text-align: center;
+    margin-left: 75px;
  }
 
  .slider-modes {
   transform: rotate(-90deg);
-  margin-top: 7rem;
-  width: 14rem;
+  margin-top: 11rem;
+  width: 20rem;
   margin-left: -5rem;
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  background: white; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
 
  }
 
+ /* Mouse-over effects */
+.slider-modes:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.slider-modes::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #000080; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider-modes::-moz-range-thumb {
+  width: 35px; /* Set a specific slider handle width */
+  height: 35px; /* Slider handle height */
+  background: #000080; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
  .momen {
   display: flex;
     flex-direction: column;
@@ -87,22 +132,23 @@ label {
 
  .play-btn {
   border-radius: 0 rem;
-  background-color: #5ca1e1;
+  background-color: #000080;
   border: none;
   color: #fff;
   text-align: center;
   font-size: 15px;
-  padding: 3px;
+  padding: 9px;
   width: 5rem;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 7rem 0rem 1.5rem 1.5rem;
+  margin: 4rem 0rem 1.5rem 1.5rem;
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
   font-size: 1.5rem;
   border-radius: 15px;
+  margin-top: 170px;
 }
 
 
