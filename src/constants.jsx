@@ -130,10 +130,18 @@ export const mode3_sliders = [
 export const mode4_sliders = [
     {
         "id":0,
-        "min":-6,
-        "max":6,
-        "step":1,
-        "value":0,
-        "label":"Voice Changer"
+        "min":0,
+        "max":2,
+        "step":0.1,
+        "value":1,
+        "label":"Dog"
+      },
+    {
+        "id":1,
+        "min":0,
+        "max":2,
+        "step":0.1,
+        "value":1,
+        "label":"Bird"
       }
 ]
