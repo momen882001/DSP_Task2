@@ -23,7 +23,7 @@ function Modes() {
     },
     {
       id: 3,
-      label: "Elective",
+      label: "Voice Changer",
       isChecked: false,
     }
   ]

@@ -17,23 +17,23 @@
     font-size: 1.5rem;
 }
 
-.upload-btn:after {
+/* .upload-btn:after {
     content: '»';
     position: absolute;
     opacity: 0;  
     top: 14px;
     right: -20px;
     transition: 0.5s;
-  }
+  } */
 
-.upload-btn:hover{
+/* .upload-btn:hover{
 padding-right: 24px;
 padding-left:8px;
 }
 .upload-btn:hover:after {
     opacity: 1;
     right: 10px;
-  }
+  } */
 .upload-audio{
     position: relative;
     overflow: hidden;

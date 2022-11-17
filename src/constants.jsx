@@ -116,6 +116,14 @@ export const mode3_sliders = [
         "step":0.1,
         "value":1,
         "label":"B"
+      },
+      {
+        "id":1,
+        "min":0,
+        "max":2,
+        "step":0.1,
+        "value":1,
+        "label":"A"
       }
 ]
 
