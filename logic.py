@@ -5,7 +5,8 @@ import librosa
 class logic():
     list_of_music = [[2,1000],[1000,2500],[2500,9000]]
     list_of_vowels = [[330,3300],[370,2650],[750,3200]]
-    list_of_modes = [list_of_music,list_of_vowels]
+    animal_list = [[100,3000],[3000,7000]]
+    list_of_modes = [list_of_music,list_of_vowels,animal_list]
     def  first_mode_ranges(sample_rate):
         """cut fmax to 10 parts"""
         fMax = sample_rate//2
