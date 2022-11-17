@@ -31,10 +31,10 @@ const AudioWaveform = () => {
 					container: '#waveform',
 					scrollParent: true,
 					autoCenter: true,
-					cursorColor: 'violet',
+					cursorColor: 'blue',
 					loopSelection: true,
 					waveColor: '#211027',
-					progressColor: '#69207F',
+					progressColor: '#5ca1e1',
 					responsive: true,
 					plugins: [
 						TimelinePlugin.create({
@@ -55,10 +55,10 @@ const AudioWaveform = () => {
 					container: '#waveform',
 					scrollParent: true,
 					autoCenter: true,
-					cursorColor: 'violet',
+					cursorColor: 'blue',
 					loopSelection: true,
 					waveColor: '#211027',
-					progressColor: '#69207F',
+					progressColor: '#5ca1e1',
 					responsive: true,
 					plugins: [
 						TimelinePlugin.create({
