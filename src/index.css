@@ -30,12 +30,17 @@ div.all-controls {
   justify-content: space-around;
 }
 
-.all-controls .right-container,
+
 .all-controls .left-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 50%;
+}
+
+.all-controls .right-container {
+ display: flex;
+ 
 }
 
 button.controls {
@@ -50,6 +55,7 @@ button.controls {
 .volume-slide-container {
   display: flex;
   align-items: center;
+  margin-right: 1rem;
 }
 
 /* smaller icon for zoom slider */
@@ -102,7 +108,7 @@ input:checked+.toggle:before {
   transform: translateX(180%);
 }
 
-.on {
+/* .on {
   display: none;
   color: white;
   position: absolute;
@@ -110,9 +116,9 @@ input:checked+.toggle:before {
   top: 45%;
   left: 35%;
   font-size: 0.5em;
-}
+} */
 
-.off {
+/* .off {
   color: white;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -120,7 +126,7 @@ input:checked+.toggle:before {
   left: 65%;
   font-size: 0.5em;
 
-}
+} */
 
 input:checked+.toggle .on {
   display: block;

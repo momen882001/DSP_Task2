@@ -4,6 +4,7 @@ import axios from 'axios';
 import './Spectrogram.css'
 import Sliders from '../Sliders/Sliders';
 
+
 function Spectrogram() {
 
     const {spec , setSpec}=useContext(FileContext)
@@ -24,11 +25,11 @@ function Spectrogram() {
 
   return (
     <div className='spec-cont'>
-      <section>
+      <section className='sliders-section'>
       <Sliders/>
       </section>
-      <section>
-      <button onClick={handleClick}>Spectrogram</button>
+      <section className='spectro-section'>
+      <button className='spectrogram-btn' onClick={handleClick}>Spectrogram</button>
       {showspec ? <img src={spec} alt="" /> : null}
       </section>
     </div>

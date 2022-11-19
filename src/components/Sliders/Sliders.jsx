@@ -108,7 +108,7 @@ function Sliders() {
     {slidersList.map((element, index) => {
       return (
         <div className='momen' >
-          <label className='slider-label'>{modesIndex === 0 || modesIndex === 3 ? element.value : modesIndex === 1 || modesIndex === 2 ? element.label : null}</label>
+          <label className='slider-label'>{modesIndex === 0? element.value : modesIndex === 1 || modesIndex === 2  || modesIndex === 3  ? element.label : null}</label>
         <input
             type={"range"}
             id={element.id}

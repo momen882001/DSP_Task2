@@ -2,25 +2,13 @@ i.material-icons {
     color: black;
 }
 
-.container {
+.cont {
     display: flex;
 }
 
 .waveform-container {
     width: 50%;
     margin: 0rem 3rem 0rem 1.5rem ;
-}
-
-.sliders-section {
-    width: 48%;
-}
-
-/* #waveform {
-    height: 210px;
-} */
-
-element.style {
-    height: 210px;
 }
 
 /* The slider itself */
@@ -58,4 +46,8 @@ element.style {
     height: 25px; /* Slider handle height */
     background: #000080; /* Green background */
     cursor: pointer; /* Cursor on hover */
+  }
+
+  .waveformUpdated {
+    margin-right: 2rem;
   }

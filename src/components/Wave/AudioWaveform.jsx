@@ -3,15 +3,16 @@ import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js';
 import { FileContext } from '../../contexts/fileContext';
 import wavesurfer from 'wavesurfer.js';
-import Sliders from '../Sliders/Sliders';
 import './wave.css'
+import { Switch } from 'antd';
+// import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 const AudioWaveform = () => {
 	const wavesurferRef = useRef(null);
 	const timelineRef = useRef(null);
 
 	// fetch file url from the context
-	const { fileURL, setFileURL , fileUpdated, setFileUpdated } = useContext(FileContext);
+	const { fileURL, setFileURL, fileUpdated, setFileUpdated } = useContext(FileContext);
 
 	// crate an instance of the wavesurfer
 	const [wavesurferObj, setWavesurferObj] = useState();
@@ -21,7 +22,7 @@ const AudioWaveform = () => {
 	const [volume, setVolume] = useState(1); // to control volume level of the audio. 0-mute, 1-max
 	const [zoom, setZoom] = useState(500); // to control the zoom level of the waveform
 	const [speed, setSpeed] = useState(1); // to control the speed level of the waveform
-	const [volumeMode , setVolumeMode] = useState(false)
+	const [volumeMode, setVolumeMode] = useState(false)
 
 	// create the waveform inside the correct component
 	useEffect(() => {
@@ -36,7 +37,7 @@ const AudioWaveform = () => {
 					waveColor: '#000080',
 					progressColor: 'white',
 					responsive: true,
-					height:210,
+					height: 210,
 					plugins: [
 						TimelinePlugin.create({
 							container: '#wave-timeline',
@@ -60,7 +61,7 @@ const AudioWaveform = () => {
 					loopSelection: true,
 					waveColor: '#000080',
 					progressColor: 'white',
-					height:210,
+					height: 210,
 					responsive: true,
 					plugins: [
 						TimelinePlugin.create({
@@ -87,9 +88,9 @@ const AudioWaveform = () => {
 			wavesurferObj.stop();
 			wavesurferObj.play();
 		}
-	}, [fileUpdated , wavesurferObjUpdated , wavesurferObj]);
+	}, [fileUpdated, wavesurferObjUpdated, wavesurferObj]);
 
-	
+
 
 	useEffect(() => {
 		if (wavesurferObj && wavesurferObjUpdated) {
@@ -141,20 +142,20 @@ const AudioWaveform = () => {
 				}
 			});
 		}
-	}, [wavesurferObj,wavesurferObjUpdated]);
+	}, [wavesurferObj, wavesurferObjUpdated]);
 
 	// set volume of the wavesurfer object, whenever volume variable in state is changed
 	useEffect(() => {
-		if (wavesurferObj&&wavesurferObjUpdated) {
-			if(volumeMode === false) {
+		if (wavesurferObj && wavesurferObjUpdated) {
+			if (volumeMode === false) {
 				wavesurferObj.setVolume(volume)
 				wavesurferObjUpdated.setVolume(0)
-			} else if(volumeMode === true) {
+			} else if (volumeMode === true) {
 				wavesurferObj.setVolume(0)
 				wavesurferObjUpdated.setVolume(volume)
 			}
 		}
-	}, [volume, wavesurferObj , wavesurferObjUpdated , volumeMode]);
+	}, [volume, wavesurferObj, wavesurferObjUpdated, volumeMode]);
 
 
 	// set zoom level of the wavesurfer object, whenever the zoom variable in state is changed
@@ -170,10 +171,10 @@ const AudioWaveform = () => {
 	// set speed level of the wavesurfer object , whenever the speed variable in state is changed
 	useEffect(() => {
 		if (wavesurferObj) {
-			 wavesurferObj.setPlaybackRate(speed);
-			 wavesurferObjUpdated.setPlaybackRate(speed);
+			wavesurferObj.setPlaybackRate(speed);
+			wavesurferObjUpdated.setPlaybackRate(speed);
 		}
-	}, [speed, wavesurferObj , wavesurferObjUpdated]);
+	}, [speed, wavesurferObj, wavesurferObjUpdated]);
 
 
 	const handlePlayPause = (e) => {
@@ -206,85 +207,99 @@ const AudioWaveform = () => {
 	};
 
 	const handleClick = () => {
-      setVolumeMode(!volumeMode)
+		setVolumeMode(!volumeMode)
 	}
 
 
 
 	return (
-		<div className="container">
-		<section className='waveform-container'>
-			<div ref={wavesurferRef} id='waveform' />
-			<div ref={timelineRef} id='wave-timeline' />
-		
-			<div className='all-controls'>
-				<div className='left-container'>
-				<button
-						title='play/pause'
-						className='controls'
-						onClick={handlePlayPause}>
-						{playing ? (
-							<i className='material-icons'>pause</i>
-						) : (
-							<i className='material-icons'>play_arrow</i>
-						)}
-					</button>
-					<button
-						title='reload'
-						className='controls'
-						onClick={handleReload}>
-						<i className='material-icons'>replay</i>
-					</button>
-					<button onClick={handleClick}>Wave Toggle</button>
-				</div>
-				<div className='right-container'>
-					<div className='volume-slide-container'>
-						<i className='material-icons'>
-							remove_circle
-						</i>
-						<input
-							type='range'
-							min='1'
-							max='4000'
-							value={zoom}
-							onChange={handleZoomSlider}
-							class='slider zoom-slider'
-						/>
-						<i className='material-icons'>add_circle</i>
+		<div className="cont">
+			<section className='waveform-container'>
+				<div ref={wavesurferRef} id='waveform' />
+				<div ref={timelineRef} id='wave-timeline' />
+
+				<div className='all-controls'>
+					<div className='left-container'>
+						<button
+							title='play/pause'
+							className='controls'
+							onClick={handlePlayPause}>
+							{playing ? (
+								<i className='material-icons'>pause</i>
+							) : (
+								<i className='material-icons'>play_arrow</i>
+							)}
+						</button>
+						<button
+							title='reload'
+							className='controls'
+							onClick={handleReload}>
+							<i className='material-icons'>replay</i>
+						</button>
+						{/* <BootstrapSwitchButton
+							checked={volumeMode}
+							onlabel='Admin User'
+							onstyle='danger'
+							offlabel='Regular User'
+							offstyle='success'
+							style='w-50 '
+							onChange={(checked) => {
+								setVolumeMode({ volumeMode: checked })
+							}}
+						/> */}
+						<Switch onClick={handleClick}/>
 					</div>
-					<div className='volume-slide-container'>
-					{volume > 0 ? (
-							<i className='material-icons'>volume_up</i>
-						) : (
-							<i className='material-icons'>volume_off</i>
-						)}
-						<input
-							type='range'
-							min='0'
-							max='1'
-							step='0.05'
-							value={volume}
-							onChange={handleVolumeSlider}
-							className='slider volume-slider'
-						/>
-						<input
-							type='range'
-							min='0.25'
-							max='2'
-							step='0.25'
-							value={speed}
-							onChange={handleSpeedSlider}
-							className='slider volume-slider'
-						/>
-						x{speed}
+					<div className='right-container'>
+						<div className='volume-slide-container'>
+							<i className='material-icons'>
+								remove_circle
+							</i>
+							<input
+								type='range'
+								min='1'
+								max='4000'
+								value={zoom}
+								onChange={handleZoomSlider}
+								class='slider zoom-slider'
+							/>
+							<i className='material-icons'>add_circle</i>
+						</div>
+						<div className='volume-slide-container'>
+							{volume > 0 ? (
+								<i className='material-icons'>volume_up</i>
+							) : (
+								<i className='material-icons'>volume_off</i>
+							)}
+							<input
+								type='range'
+								min='0'
+								max='1'
+								step='0.05'
+								value={volume}
+								onChange={handleVolumeSlider}
+								className='slider volume-slider'
+							/>
+							</div>
+							<div className="volume-slide-container">
+							<input
+								type='range'
+								min='0.25'
+								max='2'
+								step='0.25'
+								value={speed}
+								onChange={handleSpeedSlider}
+								className='slider volume-slider'
+							/>
+							x{speed}
+							
+						</div>
 					</div>
-				</div>
 				</div>
 
-		</section>
-		<section className='sliders-section'>
-		<div ref={wavesurferRef} id='waveformUpdated' />
-			
+			</section>
+			<section className='sliders-section'>
+				<div ref={wavesurferRef} id='waveformUpdated' className='waveformUpdated' />
+
 			</section>
 		</div>
 	);
