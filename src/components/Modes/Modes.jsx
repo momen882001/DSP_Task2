@@ -23,7 +23,7 @@ function Modes() {
     },
     {
       id: 3,
-      label: "Voice Changer",
+      label: "Animal ",
       isChecked: false,
     }
   ]

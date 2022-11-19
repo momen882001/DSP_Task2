@@ -13,6 +13,8 @@ app = Flask(__name__)
 CORS(app)
 UPLOADS_FOLDER = './static'
 app.config['UPLOADS_FOLDER'] = UPLOADS_FOLDER
+# signal = []
+# re_con = []
 @app.route("/")
 def default():
     pass
@@ -43,26 +45,30 @@ def get_sliders_values():
         mode = int(mode)
         slider_list = slider_list[:len(slider_list)-1]
         f_signal,freqs = logic.fourier(signal,sr)
-        fig ,(ax1,ax2) = plt.subplots(2,1)
-        fig.set_figheight(10)
-        fig.set_figwidth(10)
-        fig.tight_layout()
-        ax1.specgram(signal,NFFT=5000, Fs = sr, cmap="jet")
-        ax1.set_title('Spectrogram - Before')
-        ax1.set_xlabel("Time")
-        ax1.set_ylabel("Freq")
         re_fou = logic.final_func(f_signal,freqs,sr,slider_list,mode)
         re_con = np.fft.irfft(re_fou)
-        ax2.specgram(re_con,NFFT=5000, Fs = sr, cmap="jet")
-        ax2.set_title('Spectrogram - After')
-        ax2.set_xlabel("Time")
-        ax2.set_ylabel("Freq")
         completeName = os.path.join(app.config['UPLOADS_FOLDER'],'modified.mp3')
-        completeName_i = os.path.join(app.config['UPLOADS_FOLDER'],'original.png')
         soundfile.write(completeName,re_con,sr)
-        plt.tight_layout()
-        plt.savefig( completeName_i,format='png')
         return "good"
+@app.route('/specto',methods=['GET','POST'])
+def show_spectogram():
+    signal,sr = load('./static/signal.mp3')
+    fig ,(ax1,ax2) = plt.subplots(2,1)
+    fig.set_figheight(10)
+    fig.set_figwidth(10)
+    fig.tight_layout()
+    ax1.specgram(signal,NFFT=5000, Fs = sr, cmap="jet")
+    ax1.set_title('Spectrogram - Before')
+    ax1.set_xlabel("Time")
+    ax1.set_ylabel("Freq")
+    re_con,sr = load('./static/modified.mp3')
+    ax2.specgram(re_con,NFFT=5000, Fs = sr, cmap="jet")
+    ax2.set_title('Spectrogram - After')
+    ax2.set_xlabel("Time")
+    ax2.set_ylabel("Freq")
+    plt.tight_layout()
+    completeName_image= os.path.join(app.config['UPLOADS_FOLDER'],'original.png')
+    plt.savefig( completeName_image,format='png')
 if __name__ == "__main__":
     app.run(debug=True,port='8080',host='0.0.0.0')
     
